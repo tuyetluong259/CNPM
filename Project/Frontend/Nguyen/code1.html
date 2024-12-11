@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Chuồng (Phòng)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .button {
+            padding: 10px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quản lý Chuồng (Phòng)</h1>
+        
+        <button class="button" onclick="window.location.href='/hien-thi'">Hiển thị danh sách chuồng (phòng)</button>
+        <button class="button" onclick="window.location.href='/them-phong'">Thêm chuồng (phòng)</button>
+        <button class="button" onclick="window.location.href='/xoa-phong'">Xóa chuồng (phòng)</button>
+        <button class="button" onclick="window.location.href='/sua-phong'">Sửa tên chuồng (phòng)</button>
+    </div>
+    
+    {% if phong %}
+    <div class="container">
+        <h2>Danh sách các chuồng (phòng)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên Chuồng (Phòng)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for room in phong %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ room }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+</body>
+</html>
